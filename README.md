@@ -1,3 +1,4 @@
 //kyle
 
--create .env and past your api key at here
+
+I am writing docs
