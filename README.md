@@ -96,3 +96,18 @@ For support, email quangkytk1@gmail.com.
 ## Documentation
 [Clean Architecture](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/) 
 
+
+<pre>
+<code>
+
+lib
+├── gen
+│   ├── assets.gen.dart
+│   └── fonts.gen.dart
+├── l10n
+│   ├── app_en.arb
+├── main.dart
+
+</code>
+</pre>
+
