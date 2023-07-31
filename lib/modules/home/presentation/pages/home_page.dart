@@ -40,8 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: SingleChildScrollView(
               controller: scrollController,
               physics: const BouncingScrollPhysics(),
-              child: Column(
-                children: const [
+              child: const Column(
+                children: [
                   SizedBox(
                     height: 400,
                     child: TrendingMovieScreen(),

@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate_clean_architecture_bloc/core/base/bloc/base_bloc_state.dart';
 import 'package:flutter_boilerplate_clean_architecture_bloc/modules/home/domain/usecase/movie.usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
