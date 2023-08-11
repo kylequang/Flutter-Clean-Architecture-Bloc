@@ -8,7 +8,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../core/config/flavors_config.dart';
 import '../core/data/local/storage/app_storage_manager.dart';
-import '../core/themes/app_theme.dart';
 // import '../core/themes/app_theme_m3.dart';
 
 void main() {
@@ -31,11 +30,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: FlavorConfig.title,
         debugShowCheckedModeBanner: false,
-        // theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-        // darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-        theme: AppStorageManager().appStorageRepositoryImpl.getIsDarkMode()
-            ? AppTheme.darkTheme
-            : AppTheme.lightTheme,
         routerConfig: _appRouter.config(),
         locale: Locale(
             AppStorageManager().appStorageRepositoryImpl.getLanguageCode()),

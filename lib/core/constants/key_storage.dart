@@ -1,4 +1,5 @@
 class KeyStorage {
+  KeyStorage._();
   static const accessTokenKey = "accessTokenKey";
   static const refreshTokenKey = "refreshTokenKey";
   static const isFirstLoginKey = "isFirstLoginKey";

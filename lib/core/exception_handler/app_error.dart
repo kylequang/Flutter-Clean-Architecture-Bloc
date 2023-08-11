@@ -3,6 +3,7 @@ import '../base/base_exception.dart';
 
 abstract class AppErrorHandler {
   void handleDioError(DioError error);
+  
 }
 
 class DefaultAppErrorHandler extends AppErrorHandler {

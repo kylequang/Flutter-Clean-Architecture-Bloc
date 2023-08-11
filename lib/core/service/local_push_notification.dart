@@ -1,45 +1,47 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-class LocalPushNotificationHelper {
-  // static final FlutterLocalNotificationsPlugin
-  //     _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+class NotificationService {
+  //First we need to create an instance for the FlutterLocalNotificationPlugin.
+  final FlutterLocalNotificationsPlugin notificationsPlugin =
+  FlutterLocalNotificationsPlugin();
 
-  // static Future<void> initialize() async {
-  //   // Initialize the plugin
-  //   const initializationSettingsAndroid =
-  //       AndroidInitializationSettings('@mipmap/ic_launcher');
-  //   final initializationSettingsIOS = MacOSInitializationSettings();
-  //   final initializationSettings = InitializationSettings(
-  //       android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
-  //   await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
-  // }
+  Future<void> initNotification() async {
+    const AndroidInitializationSettings initializationSettingsAndroid =
+    AndroidInitializationSettings('@mipmap/launcher_icon');
 
-  // static Future<void> showNotification({
-  //   int id = 0,
-  //   String title = '',
-  //   String body = '',
-  // }) async {
-  //   // Configure the notification
-  //   final androidPlatformChannelSpecifics = AndroidNotificationDetails(
-  //       'channel_id', 'channel_name',
-  //       importance: Importance.max, priority: Priority.high);
-  //   final iOSPlatformChannelSpecifics = IOSInitializationSettings();
-  //   final platformChannelSpecifics = NotificationDetails(
-  //       android: androidPlatformChannelSpecifics,
-  //       iOS: iOSPlatformChannelSpecifics);
+    const DarwinInitializationSettings initializationSettingsIOS =
+    DarwinInitializationSettings();
 
-  //   // Show the notification
-  //   await _flutterLocalNotificationsPlugin.show(
-  //       id, title, body, platformChannelSpecifics);
-  // }
+    const InitializationSettings initializationSettings =
+    InitializationSettings(
+      android: initializationSettingsAndroid,
+      iOS: initializationSettingsIOS,
+    );
+    await notificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse:
+          (NotificationResponse notificationResponse) async {},
+    );
+  }
 
-  // static Future<void> cancelNotification(int id) async {
-  //   // Cancel a specific notification
-  //   await _flutterLocalNotificationsPlugin.cancel(id);
-  // }
+  NotificationDetails notificationDetails() {
+    return const NotificationDetails(
+      android: AndroidNotificationDetails(
+        'channelId',
+        'channelName',
+        importance: Importance.max,
+      ),
+      iOS: DarwinNotificationDetails(),
+    );
+  }
 
-  // static Future<void> cancelAllNotifications() async {
-  //   // Cancel all notifications
-  //   await _flutterLocalNotificationsPlugin.cancelAll();
-  // }
+  Future<void> showNotification(
+      {int id = 0, String? title, String? body, String? payLoad}) async {
+    return notificationsPlugin.show(
+      id,
+      title,
+      body,
+      notificationDetails(),
+    );
+  }
 }
