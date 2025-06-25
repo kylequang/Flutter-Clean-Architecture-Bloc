@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../data/local/storage/app_storage_manager.dart';
@@ -17,7 +16,7 @@ class AppConfig {
 
   Future<void> init() async {
     await Hive.initFlutter();
-    await dotenv.load(fileName: ".env");
+    // await dotenv.load(fileName: ".env");
     await di.configureInjection();
     await AppStorageManager().initializeHive();
     // _settingSystemUI()
@@ -32,18 +31,17 @@ class AppConfig {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
       SystemUiOverlay.top,
     ]);
-    SystemChrome.setSystemUIChangeCallback((
-        bool systemOverlaysAreVisible) async {
+    SystemChrome.setSystemUIChangeCallback(
+        (bool systemOverlaysAreVisible) async {
       if (systemOverlaysAreVisible) {
         Future<void>.delayed(
           const Duration(seconds: 3),
-              () =>
-              SystemChrome.setEnabledSystemUIMode(
-                SystemUiMode.manual,
-                overlays: <SystemUiOverlay>[
-                  SystemUiOverlay.top,
-                ],
-              ),
+          () => SystemChrome.setEnabledSystemUIMode(
+            SystemUiMode.manual,
+            overlays: <SystemUiOverlay>[
+              SystemUiOverlay.top,
+            ],
+          ),
         );
       }
     });

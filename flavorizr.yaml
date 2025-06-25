@@ -1,0 +1,28 @@
+flavors:
+  dev:
+    app:
+      name: "Clean Architecture Bloc Dev"
+
+    android:
+      applicationId: "com.example.flutter_boilerplate_clean_architecture_bloc"
+
+    ios:
+      bundleId: "com.example.flutterBoilerplateCleanArchitectureBloc"
+
+  prod:
+    app:
+      name: "Clean Architecture Bloc Prod"
+
+    android:
+      applicationId: "com.example.flutter_boilerplate_clean_architecture_bloc"
+    ios:
+      bundleId: "com.example.flutterBoilerplateCleanArchitectureBloc"
+
+  stag:
+    app:
+      name: "Clean Architecture Bloc Stag"
+
+    android:
+      applicationId: "com.example.flutter_boilerplate_clean_architecture_bloc"
+    ios:
+      bundleId: "com.example.flutterBoilerplateCleanArchitectureBloc"

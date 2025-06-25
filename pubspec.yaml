@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.17.0
+  intl:
   cupertino_icons: ^1.0.2
   dio: ^5.1.1 #networking
   flutter_dotenv: ^5.0.2 #config in environment variables
@@ -31,8 +31,8 @@ dependencies:
   isar_generator: ^3.1.0+1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  permission_handler: ^10.2.0
-  flutter_local_notifications: ^14.1.0
+  permission_handler: 12.0.0
+  flutter_local_notifications: 19.3.0
   injectable: ^2.1.1
   get_it: ^7.6.0
   injectable_generator: ^2.1.5
@@ -55,7 +55,6 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - .env
   fonts:
     - family: "SVNPoppins"
       fonts:

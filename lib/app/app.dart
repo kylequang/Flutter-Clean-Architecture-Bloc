@@ -6,13 +6,8 @@ import 'package:flutter_boilerplate_clean_architecture_bloc/modules/auth/domain/
 import 'package:flutter_boilerplate_clean_architecture_bloc/modules/auth/presentation/login/bloc/login_bloc_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../core/config/flavors_config.dart';
 import '../core/data/local/storage/app_storage_manager.dart';
-// import '../core/themes/app_theme_m3.dart';
-
-void main() {
-  runApp(MyApp());
-}
+import '../flavors.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -28,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
-        title: FlavorConfig.title,
+        title: F.appFlavor.name,
         debugShowCheckedModeBanner: false,
         routerConfig: _appRouter.config(),
         locale: Locale(
